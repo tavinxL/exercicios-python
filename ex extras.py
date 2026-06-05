@@ -1,8 +1,18 @@
-senha = 'melancia'
+from random import randint
 
-print(f'Tem pelo menos 8 caracteres? {len(senha) >= 8}')
-print(f'Na senha, tem números ? {any(c.isdigit() for c in senha)}')
-print(f'Na senha, tem letras maiusculas ? {any(c.isupper() for c in senha)}')
+escolhacomputador = randint(1, 20)
+print('Escolha um número de 1 a 20, e tente advinhar qual número o computador escolheu, '
+      'você tem 5 tentativas: ')
 
-valida = len(senha) >= 8 and any(c.isdigit() for c in senha) and any(c.isupper() for c in senha)
-print(f'Senha válida? {valida}')
+
+for c in range(1, 6):
+    escolhausuario = int(input(' '))
+    if escolhacomputador > escolhausuario:
+        print('O número é maior...')
+    elif escolhacomputador < escolhausuario:
+        print('O número é menor...')
+    else:
+        print('Parabens, você acertou')
+        break
+else:
+    print(f'Você perdeu, o número era {escolhacomputador}')
